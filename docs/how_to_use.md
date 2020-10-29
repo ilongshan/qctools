@@ -37,6 +37,20 @@ QCTool's analysis methods depend on filters from FFmpeg's libavfilter library. T
 
 Enabling all filters naturally provides more data, but results in a slower analysis and larger files. The EBU R.128 values represent perceived volume whereas the `astats` filters include metrics on actual volume (so the use of EBU R128 may not be considered essential if `astats` is in use). Additionally `PSNR` and `SSIM` both cover similar metrics by quantifying the difference between the two fields of the frame (the image of the odd-numbered lines vs the image of the even-numbered lines); `SSIM` is recommended.
 
+### Panels
+
+QCTools generates panels of images that are stacked horizontal to depict the timeline of audiovisual content in various ways. The panel tracks will reveal an image where the x-axis (viewing from left to right) will represent the timeline of the audiovisual content and the y-axis (viewing from top to bottom) is conditionally determined by the panel.
+
+| filter name | track type | application in QCTools |
+| Tiled Center Column | video | This image shows the center column of pixels from each subsequent image of the video timeline. |
+| Tiled Center Column (Field Split) | video | Similar to 'Tiled Center Column'; however, the image is adjusted so that odd lines of video (the top field of an interlaced video) are shown at the top of the image and the even lines of video (the bottom field) are shown at the bottom. |
+| Tiled Center Row | video | This image shows the center column of pixels from each subsequent image of the video timeline rotated by 90 degrees counter-clockwise.
+| Horizontal Blur | video | 
+| Audio Waveform (Linear) | audio | 
+| Audio Waveform (Logarithmic) | audio | 
+| Audio Normalized Cross-correlation | audio | 
+| Audio Histogram | audio | 
+
 ### Tracks
 
 The 'Tracks' Preference pane allows the user to set if they would like to analyze only the first track or all tracks of video and audio. Setting QCTools to analyze only the first track will result in a faster analyze but the other tracks would be ignored.
